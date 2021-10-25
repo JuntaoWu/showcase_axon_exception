@@ -1,0 +1,10 @@
+# Data source
+spring.datasource.url=jdbc:mysql://localhost:13306/showcase_axon_exception?useLegacyDatetimeCode=false&useUnicode=true&characterEncoding=UTF-8&rewriteBatchedStatements=true&cachePrepStmts=true&prepStmtCacheSize=128&prepStmtCacheSqlLimit=2048&useServerPrepStmts=true&useSSL=false
+spring.datasource.username=showcase_user
+spring.datasource.password=showcase_password
+
+# Axon
+axon.axonserver.servers=localhost:18124
+
+# Logging
+logging.level.org.springframework.web.filter.CommonsRequestLoggingFilter=debug

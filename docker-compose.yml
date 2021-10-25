@@ -1,0 +1,44 @@
+version: "3.7"
+services:
+  axonserver:
+    image: axoniq/axonserver:4.5.6
+    environment:
+      AXONSERVER_HOSTNAME: axonserver
+      JAVA_OPTS: -Xms256m -Xmx512m
+    volumes:
+      - axon_data:/data
+      - axon_eventdata:/eventdata
+    ports:
+      - 18024:8024
+      - 18124:8124
+    networks:
+      SHOWCASE:
+        aliases:
+          - axonserver
+
+  database_mysql:
+    image: mysql/mysql-server:5.7.35
+    restart: always
+    command: --init-file /data/application/setup.sql
+    environment:
+      - MYSQL_ROOT_PASSWORD=root@2021
+      - MYSQL_USER=honeypot_user
+      - MYSQL_PASSWORD=honeypot_password
+    volumes:
+      - mysql_conf:/etc/mysql
+      - mysql_data:/var/lib/mysql
+      - ./setup.sql:/data/application/setup.sql
+    ports:
+      - 13306:3306
+    networks:
+      SHOWCASE:
+        aliases:
+          - database-mysql
+
+volumes:
+  axon_data:
+  axon_eventdata:
+  mysql_data:
+  mysql_conf:
+networks:
+  SHOWCASE:
