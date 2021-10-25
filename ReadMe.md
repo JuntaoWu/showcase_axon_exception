@@ -94,6 +94,9 @@ The Aggregate/CommandHandler & "Query Entity" are located in domain/ package.
 The Service implementation are located in infrastructure/ package.
 
 ### Questions here
-1. Currently I only know we can skip the problematic token in our query database. But the DataAccessException still cannot be resolved by any code.
-Is there a way to tell AxonServer that "I know something wrong happended, and it's not a transient issue, just ignore it"?
+1. Currently I only know we can skip the problematic token in our query database. 
+    
+    But the DataAccessException still cannot be resolved by any code.
+
+    Is there a way to tell AxonServer that "I know something wrong happended, and it's not a transient issue, just ignore it"?
 
