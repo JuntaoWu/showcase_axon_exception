@@ -18,20 +18,20 @@
 + Case 1: A custom CheckedBusinessException
   1. Create an EmptyName person as shown:
 
-        [create-emptyname-person](test/Screenshot-1.png)
+        ![create-emptyname-person](test/Screenshot-1.png)
 
   2. Axon will not retry this exception, which is expected behavior.
 
-        [axon-will-not-retry-this-checked-exception](test/Screenshot-2.png)
+        ![axon-will-not-retry-this-checked-exception](test/Screenshot-2.png)
 
 + Case 2: A custom CheckedDataAccessException ?
   1. Create a person named 'alice', the person was saved correctly.
-    [create-person-with-same-name](test/Screenshot-3.png)
+    ![create-person-with-same-name](test/Screenshot-3.png)
   2. Create the same person again, the UniqueConstraints will make it fail via DataAccessException.
      
      Axon will retry this EventHandler infinitely due to the UnexpectedRollbackException.
      
-     [axon-will-retry-this-exception](test/Screenshot-4.png)
+     ![axon-will-retry-this-exception](test/Screenshot-4.png)
 
 ### Showcase Folder Structure explaining
 
