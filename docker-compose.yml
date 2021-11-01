@@ -19,11 +19,7 @@ services:
   database_mysql:
     image: mysql/mysql-server:5.7.35
     restart: always
-    command: --init-file /data/application/setup.sql
-    environment:
-      - MYSQL_ROOT_PASSWORD=root@2021
-      - MYSQL_USER=honeypot_user
-      - MYSQL_PASSWORD=honeypot_password
+    command: --default-authentication-plugin=mysql_native_password --init-file /data/application/setup.sql
     volumes:
       - mysql_conf:/etc/mysql
       - mysql_data:/var/lib/mysql
